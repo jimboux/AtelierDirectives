@@ -1,0 +1,41 @@
+<p>catalog works!</p>
+<div>
+  
+  <!-- Dans la liste de produit certains n’ont pas de prix défini, certains ont une promo -->
+  <!-- Je souhaiterais afficher 3 listes distinctes de produits -->
+  <!-- La première  concerne les produits avec des prix à définir -->
+  <!-- La seconde concerne les produits en promotion -->
+  <!-- Et enfin la troisième concerne le reste des produits -->
+<h2>
+    Première liste (n'ont pas de prix)
+</h2>
+
+
+<ul *ngFor="let i of products">
+  
+  <li *ngIf ="!i.price">
+ {{i.name}} n'as pas de prix à mes yeux.
+  </li>
+</ul>
+
+<h2>
+  2eme liste (ont une promo)
+</h2>
+
+<ul *ngFor="let i of products">
+  <li *ngIf ="i.promo">
+    {{i.name}} a une promale
+  </li>
+</ul>
+
+
+<h2>
+  Hasbulla Lover's
+</h2>
+
+  <ul *ngFor="let i of products">
+  <li *ngIf ="!i.promo && i.price">
+    {{i.name}} {{i.promo}} (le reste)
+  </li>
+</ul>
+</div>
